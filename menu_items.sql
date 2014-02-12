@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `menu_items` (
 -- Zrzut danych tabeli `menu_items`
 --
 
-INSERT INTO `menu_items` (`id`, `parent_id`, `url`, `title`, `classes`) VALUES
+INSERT INTO `menu_items` (`id`, `parent_id`, `url`, `title`, `classes`,`position`) VALUES
 (1, 0, 'http://www.google.pl', 'Google', '',1),
 (2, 0, 'http://www.interia.pl', 'Interia', '',2),
 (3, 0, 'http://www.wykop.pl', 'Wykop', 'dog cat',3),
