@@ -22,7 +22,7 @@ class Kohana_Menu
 
                 if ($this->config['driver'] == 'database') {
                     $menu = ORM::factory('menu_item');
-                    $items = $menu->where('parent_id', '=', 0)->find_all();
+                    $items = $menu->where('parent_id', '=', 0)->order_by('position')->find_all();
                     $this->menu['items'] = $this->get_from_database_orm($items);
                 }
                 else if ($this->config['driver'] == 'file')
@@ -61,7 +61,7 @@ class Kohana_Menu
                 if ($item->classes) {
                         $temp[$key]['classes'] = array($item->classes);
                 }
-                $subcategories = $item->subcategories->find_all();
+                $subcategories = $item->subcategories->order_by('position')->find_all();
                 if ($subcategories->count() > 0)
                     $temp[$key]['items'] = $this->get_from_database_orm($subcategories);
             }
